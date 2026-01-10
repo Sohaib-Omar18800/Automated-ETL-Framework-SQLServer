@@ -1,6 +1,6 @@
 import polars as pl
 
-# default schema if you change the names please change it also in auto_incremental_load.py file
+# default schema if you change the names please change it also in auto_increment.py script and in table script
 def schema():
     schemas = {'crm_cst_schema': {'cst_id': pl.Int32,
                                   'cst_key': pl.String,
@@ -36,4 +36,5 @@ def schema():
                                           'maintenance': pl.String}
                }
     return schemas
+
 
