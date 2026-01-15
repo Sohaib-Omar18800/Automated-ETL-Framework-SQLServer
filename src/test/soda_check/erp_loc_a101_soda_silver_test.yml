@@ -1,0 +1,4 @@
+checks for erp_loc_a101:
+  - schema:
+      fail:
+        when required column missing: [cid]
