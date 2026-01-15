@@ -1,0 +1,8 @@
+checks for crm_sale_details:
+  - schema:
+      fail:
+        when required column missing: [sls_ord_num, sls_order_dt, sls_prd_key, sls_cust_id]
+  - min(sls_price) > 0 
+  - failed rows:
+      name: Sales date cannot be in the future
+      fail condition: sls_order_dt > '${today}'
