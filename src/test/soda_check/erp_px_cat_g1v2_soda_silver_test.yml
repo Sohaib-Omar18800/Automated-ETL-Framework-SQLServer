@@ -1,0 +1,6 @@
+checks for erp_px_cat_g1v2:
+  - invalid_count(maintenance) = 0:
+      valid values: [Yes, No]
+  - schema:
+      fail:
+        when required column missing: [id, cat]
