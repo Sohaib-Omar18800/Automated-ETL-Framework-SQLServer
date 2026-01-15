@@ -1,0 +1,17 @@
+# --- Data Processing & Engines ---
+polars[connectorx,sqlalchemy]>=0.20.0  
+pandas>=2.0.0                          
+duckdb>=0.9.0                          
+
+# --- Database Connectivity ---
+pyodbc>=5.0.0                          
+sqlalchemy>=2.0.0                      
+connectorx>=0.3.2                     
+
+# --- Data Quality & Validation ---
+soda-core-sqlserver>=3.0.0            
+soda-core-duckdb>=3.0.0               
+
+# --- Utilities ---
+pathlib                               
+datetime                              
