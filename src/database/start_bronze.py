@@ -1,3 +1,4 @@
+
 def start_bronze():
     user_info = sql_server_var()
     conn_string_windows = (
@@ -37,7 +38,7 @@ def start_bronze():
         cursor.execute(use_database_query)
         cursor.execute(create_bronze_schema)
         create_bronze_table(cursor=cursor)
-        auto_increment('bronze', user_info[1], user_info[2])
+        auto_increment('bronze', user_info[1], user_info[2], user_info[0])
     except pyodbc.Error as e:
         print(f"Error occured: {e}")
     return user_info
