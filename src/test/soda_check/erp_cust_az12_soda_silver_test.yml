@@ -1,0 +1,12 @@
+checks for erp_cust_az12:
+  - invalid_count(gen) = 0:
+      valid values: [Male, Female, n/a]
+  - failed rows:
+      name: Birthday cannot be in the future
+      fail condition: bdate > '${today}'
+  - failed rows:
+      name: CID should not start with NAS
+      fail condition: cid LIKE 'NAS%'
+  - schema:
+      fail:
+        when required column missing: [cid]
