@@ -112,4 +112,3 @@ erp_cust_az12, erp_loc_a101, erp_px_cat_g1v2
     cursor.execute(create_bronze_erp_loc_a101)
     cursor.execute(create_bronze_erp_px_cat_g1v2)
     print('Creation of Bronze Tables Completed')
-    return None
