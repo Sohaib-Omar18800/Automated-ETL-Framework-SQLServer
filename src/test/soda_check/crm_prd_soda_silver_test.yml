@@ -1,0 +1,11 @@
+checks for crm_prd_info:
+  - missing_count(prd_key) = 0
+  - min(prd_cost) >= 0
+  - invalid_count(prd_line) = 0:
+      valid values: [Road, Mountain, Other Sales, Touring, Unidentified]
+  - failed rows:
+      name: Start date must be before end date
+      fail condition: prd_start_dt >= prd_end_dt
+  - schema:
+      fail:
+        when required column missing: [prd_key, prd_nm]
