@@ -71,52 +71,52 @@ Automated-ETL-Framework-SQLServer/
 ```
 ## 🛠️ **<u>Data Pipeline Details</u>**
 ### **1. 🥉 Bronze Layer (Raw Ingestion)**
-Source: Extracts data from multi-source CSV files (CRM & ERP).
+- Source: Extracts data from multi-source CSV files (CRM & ERP).
 
-Process: Bulk loading into SQL Server using Polars for high-speed ingestion.
+- Process: Bulk loading into SQL Server using Polars for high-speed ingestion.
 
-Metadata: Every record is tagged with a bronze_inserted_at timestamp to enable incremental tracking.
+- Metadata: Every record is tagged with a bronze_inserted_at timestamp to enable incremental tracking.
 
 ### **2. 🥈 Silver Layer (Cleansing & Transformation)**
-Cleaning: Handles data types standardization and null values handling.
+- Cleaning: Handles data types standardization and null values handling.
 
-Incremental Load (The Brain): The auto_increment.py engine compares the source (Bronze) with the target (Silver) using timestamps, ensuring that only new records are processed.
+- Incremental Load (The Brain): The auto_increment.py engine compares the source (Bronze) with the target (Silver) using timestamps, ensuring that only new records are processed.
 
-Validation: Integrated Soda Core checks run at this stage to ensure data schema and integrity before moving forward.
+- Validation: Integrated Soda Core checks run at this stage to ensure data schema and integrity before moving forward.
 
 ### **3. 🥇 Gold Layer (Analytical Modeling)**
-Storage: Data is moved to DuckDB for specialized analytical performance.
+- Storage: Data is moved to DuckDB for specialized analytical performance.
 
-Modeling: Implements a Star Schema (Fact & Dimension tables).
+- Modeling: Implements a Star Schema (Fact & Dimension tables).
 
-Final Product: Creates SQL Views ready for BI tools like Power BI or Tableau.
+- Final Product: Creates SQL Views ready for BI tools like Power BI or Tableau.
 
 ### **🛡️ Reliability & Self-Healing**
 What makes this framework different is the Self-Healing Infrastructure:
 
-Dependency Awareness: The system detects if you are trying to run a "Gold Load" while the "Silver" or "Bronze" layers are empty.
+- Dependency Awareness: The system detects if you are trying to run a "Gold Load" while the "Silver" or "Bronze" layers are empty.
 
-Recursive Triggers: It will automatically backtrack, initialize the database, create schemas, and load the missing upstream data before completing your requested operation.
+- Recursive Triggers: It will automatically backtrack, initialize the database, create schemas, and load the missing upstream data before completing your requested operation.
 
-Fail-Safe Connections: Robust handling of Windows Authentication and dynamic SQL Server connection strings.
+- Fail-Safe Connections: Robust handling of Windows Authentication and dynamic SQL Server connection strings.
 
 ### **✅ Data Quality Assurance (Soda.io)**
-We don't just move data; we ensure it's correct. The pipeline executes automated tests:
+- We don't just move data; we ensure it's correct. The pipeline executes automated tests:
 
-Schema Validation: Ensures no breaking changes in source files.
+- Schema Validation: Ensures no breaking changes in source files.
 
-Uniqueness Checks: Prevents duplicate records in Dimension tables.
+- Uniqueness Checks: Prevents duplicate records in Dimension tables.
 
-Referential Integrity: Validates that Sales facts correspond to existing Customers and Products.
+- Referential Integrity: Validates that Sales facts correspond to existing Customers and Products.
 
 ### **🚀 How to Run**
-Configure SQL Server: Ensure your SQL instance is running.
+- Configure SQL Server: Ensure your SQL instance is running.
 
-Install Requirements: pip install -r requirements.txt
+- Install Requirements: pip install -r requirements.txt
 
-Launch: Run python src/main.py.
+- Launch: Run python src/main.py.
 
-Interactive CLI: Follow the prompts to select the layer (Bronze/Silver/Gold) or perform a full "All Tables" sync.
+**Interactive CLI: Follow the prompts to select the layer (Bronze/Silver/Gold) or perform a full "All Tables" sync.**
 
 ## ✨ Developed by
 **Sohaib Omar**
