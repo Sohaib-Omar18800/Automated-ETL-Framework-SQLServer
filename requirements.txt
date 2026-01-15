@@ -1,3 +1,5 @@
+# --- Environment ---
+python>=3.10
 # --- Data Processing & Engines ---
 polars[connectorx,sqlalchemy]>=0.20.0  
 pandas>=2.0.0                          
