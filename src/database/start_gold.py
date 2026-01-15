@@ -8,7 +8,7 @@ def start_gold():
         df_query = f"""
 SELECT * FROM silver.{names}
 """
-        df = pl.read_database_uri(df_query, uri=user_info[2])
+        df = pl.read_database_uri(df_query, uri=user_info[1])
         con.register(f'temp_{names}', df)
     list_fact = create_gold(con=con)
     return [user_info[0], list_fact]
