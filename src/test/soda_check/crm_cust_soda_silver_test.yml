@@ -1,0 +1,8 @@
+checks for crm_cust_info:
+  - row_count > 0 
+  - missing_count(cst_id) = 0 
+  - duplicate_count(cst_key) = 0 
+  - invalid_count(cst_gndr) = 0:
+      valid values: [Male, Female, n/a]
+  - invalid_count(cst_material_status) = 0:
+      valid values: [Single, Married, n/a]
